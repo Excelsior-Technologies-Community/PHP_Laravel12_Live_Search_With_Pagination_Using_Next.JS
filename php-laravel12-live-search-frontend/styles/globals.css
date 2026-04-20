@@ -1,0 +1,15 @@
+.highlight {
+  background: yellow;
+  padding: 2px 5px;
+  border-radius: 4px;
+  animation: fadeHighlight 0.4s ease-in-out;
+}
+
+@keyframes fadeHighlight {
+  from {
+    background-color: orange;
+  }
+  to {
+    background-color: yellow;
+  }
+}

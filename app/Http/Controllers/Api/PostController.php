@@ -13,13 +13,26 @@ class PostController extends Controller
     {
         $query = Post::query();
 
+        //  Search
         if ($request->search) {
-            $query->where('title', 'like', "%{$request->search}%")
-                  ->orWhere('body', 'like', "%{$request->search}%");
+            $query->where(function ($q) use ($request) {
+                $q->where('title', 'like', "%{$request->search}%")
+                    ->orWhere('body', 'like', "%{$request->search}%");
+            });
         }
 
-        $posts = $query->orderBy('id', 'asc')->paginate(3);
-        return response()->json($posts);
+        //  Sorting
+        if ($request->sort == 'title_asc') {
+            $query->orderBy('title', 'asc');
+        } elseif ($request->sort == 'title_desc') {
+            $query->orderBy('title', 'desc');
+        } elseif ($request->sort == 'oldest') {
+            $query->orderBy('id', 'asc');
+        } else {
+            $query->orderBy('id', 'desc'); // latest
+        }
+
+        return response()->json($query->paginate(3));
     }
 
     // Create post
