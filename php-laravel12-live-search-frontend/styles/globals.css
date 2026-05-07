@@ -1,15 +1,72 @@
 .highlight {
-  background: yellow;
-  padding: 2px 5px;
-  border-radius: 4px;
-  animation: fadeHighlight 0.4s ease-in-out;
+  background-color: #fff176;
+  padding: 0 2px;
+  border-radius: 3px;
+  font-weight: 600;
 }
 
-@keyframes fadeHighlight {
-  from {
-    background-color: orange;
-  }
-  to {
-    background-color: yellow;
-  }
+.tiptap-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 8px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.tiptap-toolbar button {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tiptap-toolbar button:hover {
+  background: #e0e0e0;
+}
+
+.tiptap-toolbar button.active {
+  background: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+.tiptap-editor {
+  border: 1px solid #ccc;
+  border-radius: 0 0 6px 6px;
+  min-height: 160px;
+  padding: 12px;
+  background: #fff;
+}
+
+.tiptap-editor .ProseMirror {
+  outline: none;
+  min-height: 140px;
+}
+
+.tiptap-dark.tiptap-editor {
+  background: #1e1e1e;
+  border-color: #555;
+  color: #f1f1f1;
+}
+
+.tiptap-dark .ProseMirror {
+  color: #f1f1f1;
+}
+
+.tiptap-dark ~ .tiptap-toolbar,
+.tiptap-toolbar.dark {
+  background: #2c2c2c;
+  border-color: #555;
+}
+
+.tiptap-toolbar.dark button {
+  background: #3a3a3a;
+  color: #f1f1f1;
+  border-color: #555;
 }
